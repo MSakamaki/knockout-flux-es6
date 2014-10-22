@@ -1,7 +1,12 @@
 
-console.log('\'Allo \'Allo!');
-class myClass {
+class AppViewModel {
   constructor() {
-    this.name = [];
+    this.users = {
+        personName: 'ボブ',
+        personAge: 123
+    };
   }
 }
+
+var appVM = new AppViewModel();
+ko.applyBindings(appVM.users);
