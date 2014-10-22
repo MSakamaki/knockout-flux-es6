@@ -71,9 +71,16 @@ var _storeModel = new StoreModel();
 class ClickCounterViewModel{
   constructor(){
     this.numberOfClicks = ko.observable(0);
+    // sub view
+    this.subClick1 = ko.observable(0);
+    this.subClick2 = ko.observable(0);
+    this.subClick3 = ko.observable(0);
 
     // StoreにListnerを登録()    
     _storeModel.addListener(() => this.resetView());
+    _storeModel.addListener(() => this.subView1());
+    _storeModel.addListener(() => this.subView2());
+    _storeModel.addListener(() => this.subView3());
   
   }
   
@@ -82,8 +89,17 @@ class ClickCounterViewModel{
   }
 
   resetView(){
-    console.log('knockup!', _storeModel.countor());    
     this.numberOfClicks(_storeModel.countor());
+  }
+
+  subView1(){
+    this.subClick1(_storeModel.countor());    
+  }
+  subView2(){
+    this.subClick2(_storeModel.countor());    
+  }
+  subView3(){
+    this.subClick3(_storeModel.countor());    
   }
 }
 
