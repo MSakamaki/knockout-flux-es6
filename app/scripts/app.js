@@ -1,5 +1,7 @@
 
 /*****************************/
+// Dispacherはロジックを持たない
+// 実際はFacebookの Dispatcher libraryか RxJS を使うのが実用的
 class Dispacher{
   constructor() {
     this.listeners = [];
@@ -20,6 +22,7 @@ class Dispacher{
 var _disp = new Dispacher();
 
 /*****************************/
+// データの管理と操作はここでする
 class Store extends Dispacher{
   constructor() {
     super();
@@ -28,6 +31,9 @@ class Store extends Dispacher{
   countup(num) {
     this.countor += num;
   }
+  countdown(num) {
+    this.countor -= num;
+  }
   emitChange() {
     this.emit("change");
   }
@@ -35,12 +41,16 @@ class Store extends Dispacher{
 
 
 /*****************************/
+// 処理のためのルーターとインタフェース
 var StoreModel = function(){
   var store = new Store();
   _disp.addListener(function (action) {
     switch(action.action){
       case 'ADD':
         store.countup(action.count);
+        break;
+      case 'MINUS':
+        store.countdown(action.count);
         break;
     }
     store.emitChange();
@@ -55,7 +65,9 @@ var StoreModel = function(){
 
 
 /*****************************/
-class _Action {
+// 処理呼び出しをより具体的な形にするためのメソッド
+// 値を増やす Action Class
+class _ActionPlus {
   constructor(){}
   countup(num){
     _disp.emit({
@@ -64,9 +76,20 @@ class _Action {
     });
   }
 }
+// 値を減らす Action Class
+class _ActionMinus {
+  constructor(){}
+  countdown(num){
+    _disp.emit({
+      action: "MINUS", 
+      count: num
+    });
+  }
+}
 
 
 /**************************** main app */
+// 処理の本体
 var _storeModel = new StoreModel();
 class ClickCounterViewModel{
   constructor(){
@@ -83,15 +106,19 @@ class ClickCounterViewModel{
     _storeModel.addListener(() => this.subView3());
   
   }
-  
+  // 加算ボタン
   registerClick() {
-    new _Action().countup(1);
+    new _ActionPlus().countup(1);
+  } 
+  // 減算ボタン
+  minusClick(){
+    new _ActionMinus().countdown(1);
   }
 
-  resetView(){
+  // 描画処理 (連携)
+  resetView(hoge){
     this.numberOfClicks(_storeModel.countor());
   }
-
   subView1(){
     this.subClick1(_storeModel.countor());    
   }
