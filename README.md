@@ -52,4 +52,10 @@ Viewは更新されたStoreからの内容を常に監視し、描画します�
 
 #### Acceptance testing
 
+### ES6 Covrage Tools
 
+https://www.npmjs.org/package/istanbul-traceur
+
+### ES6 plato ?
+
+ES.Next Option true

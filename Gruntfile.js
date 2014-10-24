@@ -121,6 +121,12 @@ module.exports = function (grunt) {
           // Just need to transpile main file which imports others.
           '.tmp/scripts/app.js': ['app/scripts/app.js']
         }
+      },
+      test: {
+        files: {
+          // Just need to transpile main file which imports others.
+          '.tmp/spec/test.js': ['test/spec/test.js']
+        }
       }
     },
 
@@ -360,7 +366,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer',
-      'traceur',
+      'traceur:all',
       'connect:livereload',
       'watch'
     ]);
@@ -381,8 +387,11 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'traceur:test',
+      'traceur:all',
       'connect:test',
-      'mocha'
+      'mocha',
+      'watch'
     ]);
   });
 
@@ -392,7 +401,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'traceur',
+    'traceur:all',
     'concat',
     'cssmin',
     'uglify',
