@@ -3,19 +3,38 @@ knockout flux es6
 
 knockoutjs Flux Architecture for ECMAScript6 
 
+### Directory Tree
+
+```sh
+
+.
+├── app.js              <- アプリケーション本体
+├── action
+│   ├── actionMinus.js  <- 加算用 ActionClass
+│   └── actionPlus.js   <- 減算用 ActionClass
+├── dispacher
+│   ├── dispacher.js    <- 俺俺ディスパッチャー
+│   └── singleList.js   <- ディスパッチャーを実現する為のSingletonなリスト
+└── store
+    ├── iCalcStore.js   <- Storeのインタフェース
+    └── impl
+        └── calcStore.js <- Storeの実装
+
+```
+
 ### Class Method's
 
 #### Class
 
-##### Dispacher
+##### Dispacher, SingleList
 
 ActionからStoreに処理を渡す、シングルトンな処理を持たないクラス
 
-##### Store, StoreModel
+##### CalcStore, iCalcStore
 
 データの管理と操作を行うクラス。
 
-##### _ActionPlus, _ActionMinus
+##### ActionPlus, ActionMinus
 
 データ変更の為のトリガー処理をラッパーするクラス
 （別に無くてもよい）
