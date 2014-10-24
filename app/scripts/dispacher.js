@@ -19,29 +19,3 @@ export default class Dispacher{
     return this.listeners.length - 1;
   }
 }
-
-/*
-let singleton = Symbol();
-let singletonEnforcer = Symbol()
-
-class SingletonTest {
-
-  constructor(enforcer) {
-    if(enforcer != singletonEnforcer) throw "Cannot construct singleton";
-  }
-
-  static get instance() {
-    if(!this[singleton]) {
-      this[singleton] = new SingletonTest(singletonEnforcer);
-    }
-    return this[singleton];
-  }
-}
-
-export default SingletonTest
-----use
-import SingletonTest from 'singleton-test';
-let instance = SingletonTest.instance;
-
-*/
-
