@@ -1,4 +1,4 @@
-import SingleLists from './single';
+import SingleLists from './singleList';
 
 /*****************************/
 // Dispacherはロジックを持たない

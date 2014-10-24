@@ -1,4 +1,4 @@
-import Dispacher from '../../dispacher';
+import Dispacher from '../../dispacher/dispacher';
 
 /*****************************/
 // データの管理と操作はここでする

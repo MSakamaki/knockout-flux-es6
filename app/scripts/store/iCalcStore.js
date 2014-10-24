@@ -1,5 +1,5 @@
 import CalcStore from './impl/calcStore';
-import Dispacher from '../dispacher';
+import Dispacher from '../dispacher/dispacher';
 
 /*****************************/
 // 処理のためのルーターとインタフェース

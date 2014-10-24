@@ -1,4 +1,4 @@
-import Dispacher from '../dispacher';
+import Dispacher from '../dispacher/dispacher';
 
 /*****************************/
 // 処理呼び出しをより具体的な形にするためのメソッド
