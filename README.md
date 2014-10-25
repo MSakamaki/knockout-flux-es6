@@ -75,6 +75,14 @@ Viewは更新されたStoreからの内容を常に監視し、描画します�
 
 https://www.npmjs.org/package/istanbul-traceur
 
+
+
+#### [ismailia](https://github.com/Spote/ismailia)
+
+ * traceur version 0.0.58 only support
+ * branch is coverage/istanbule testing
+
+
 ### ES6 plato ?
 
 ES.Next Option true
