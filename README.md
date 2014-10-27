@@ -73,12 +73,27 @@ Viewは更新されたStoreからの内容を常に監視し、描画します�
 
 ### ES6 Covrage Tools
 
-https://www.npmjs.org/package/istanbul-traceur
+#### [istanbul-traceur](https://github.com/meoguru/istanbul-traceur)
 
+https://www.npmjs.org/package/istanbul-traceur
+ 
+ * カバレッジを出そうとするとsingletonlist内で以下が発tracerの非同期が原因？
+ * 関連ありそうなissuesは[これ](https://github.com/taichi/grunt-istanbul/issues/22)
+
+ ```
+Fatal error: An error occurred in an async call.
+cause stack is ...
+  undefined
+async call history is ...
+ [ { function: 'instrument',
+    location: '/Users/msakamaki/project/ECMA/knockout-flux-es6/node_modules/grunt-istanbul/tasks/helpers.js:72:56',
+    mapping: { name: 'app/scripts/dispacher/singleList.js', code: [Object] } } ]
+ ```
 
 
 #### [ismailia](https://github.com/Spote/ismailia)
 
+ * 動くけどバージョンが0.0.58
  * traceur version 0.0.58 only support
  * branch is coverage/istanbule testing
 
